@@ -5,8 +5,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pre-commit": "pretty-quick --staged --no-restage",
+    "pre-push": "npm run test",
+    "postinstall": "husky install",
+    "preversion": "npm test",
+    "postversion": "git push origin --tags --no-verify",
+    "test": "mocha"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "husky": "^5.0.4",
+    "mocha": "^8.2.1",
+    "prettier": "^2.2.1"
+  }
 }
